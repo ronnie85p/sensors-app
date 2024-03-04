@@ -1,9 +1,9 @@
 <p>Версия php >= 8.3.0</p>
 
 Server Side api<br/>
-GET api/sensors/{param}<br/>
-GET|POST api/sensors/config/{param}<br/>
-GET api/sensors/logs/{param}<br/>
+api/sensors/{param} GET<br/>
+api/sensors/config/{param} GET|POST<br/>
+api/sensors/logs/{param} GET<br/>
 
 Client Side api<br/>
 Sensor.http.getConfig(param) - Получить конфигурацию датчика.<br/>
