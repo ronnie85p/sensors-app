@@ -29,8 +29,6 @@ Route::post('/sensors/config/{param}', [Api\Sensors\ConfigController::class, 'st
 
 // Logs
 Route::get('/sensors/logs/{param}', [Api\Sensors\LogsController::class, 'index']);
-Route::get('/sensors/logs/{param}/{id}', [Api\Sensors\LogsController::class, 'show']);
-Route::delete('/sensors/logs/{param}', [Api\Sensors\LogsController::class, 'deleteAll']);
 
 //
 // Test source
