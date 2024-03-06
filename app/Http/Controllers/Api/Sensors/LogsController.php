@@ -8,12 +8,9 @@ use App\Services\Sensors\SensorsService;
 
 class LogsController extends Controller
 {
-    private $service;
-
-    function __construct()
-    {
-        $this->service = new SensorsService();
-    }
+    function __construct(
+        private SensorsService $service
+    ) { }
 
     public function index(string $param, Request $request)
     {

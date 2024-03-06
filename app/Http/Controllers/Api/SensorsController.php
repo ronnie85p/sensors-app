@@ -9,13 +9,9 @@ use Illuminate\Http\Request;
 
 class SensorsController extends Controller
 {
-
-    private $service;
-
-    function __construct()
-    {
-        $this->service = new SensorsService();
-    }
+    function __construct(
+        private SensorsService $service
+    ) { }
 
     public function getValue(string $param, Request $request)
     {

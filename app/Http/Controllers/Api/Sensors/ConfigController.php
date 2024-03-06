@@ -8,12 +8,9 @@ use App\Services\Sensors\SensorsService;
 
 class ConfigController extends Controller
 {
-    private $service;
-
-    function __construct()
-    {
-        $this->service = new SensorsService();
-    }
+    function __construct(
+        private SensorsService $service
+    ) { }
 
     public function show(string $param)
     {
