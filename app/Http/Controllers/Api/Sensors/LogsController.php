@@ -19,7 +19,7 @@ class LogsController extends Controller
             ->setParam($param)
             ->getLogs($request->query());
 
-        return new SensorsResource($logs);
+        return new SensorsResource($logs); //SensorsCollection::collection($logs);
     }
 
     public function deleteAll(string $param)

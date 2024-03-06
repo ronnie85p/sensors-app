@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api\Sensors;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\Sensors\SensorsResource;
 use App\Services\Sensors\SensorsService;
 
 class ConfigController extends Controller
@@ -18,9 +19,7 @@ class ConfigController extends Controller
             ->setParam($param)
             ->getConfig();
 
-        return response()->json([
-            'data' => $config
-        ]);
+        return new SensorsResource($config);
     }
 
     public function store(string $param, Request $request)
@@ -31,8 +30,8 @@ class ConfigController extends Controller
             ->setParam($param)
             ->setConfig($fields);
 
-        return response()->json([
-            'config' => $this->service->getConfig(),
-        ]);
+        return new SensorsResource(
+            $this->service->getConfig()
+        );
     }
 }
