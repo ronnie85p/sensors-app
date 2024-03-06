@@ -15,8 +15,9 @@ class SensorsController extends Controller
 
     public function getValue(string $param, Request $request)
     {
-        $this->service->setParam($param);
-        $value = $this->service->getValue();
+        $value = $this->service
+            ->setParam($param)
+            ->getValue();
 
         return response()->json([
             'data' => $value,
