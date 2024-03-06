@@ -1,12 +1,18 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Sensors;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Sensors extends JsonResource
+class SensorsResource extends JsonResource
 {
+    function __construct(
+        private $data = null
+    ) {
+
+    }
+
     /**
      * Transform the resource into an array.
      *
@@ -14,6 +20,8 @@ class Sensors extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            "data" => $this->data
+        ];
     }
 }

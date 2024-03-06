@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Sensors\SensorsResource;
 use App\Services\Sensors\SensorsService;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,6 @@ class SensorsController extends Controller
             ->setParam($param)
             ->getValue();
 
-        return response()->json([
-            'data' => $value,
-        ]);
+        return  new SensorsResource($value);
     }
 }

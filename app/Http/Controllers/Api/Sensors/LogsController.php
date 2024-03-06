@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Sensors;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Sensors\SensorsResource;
 use App\Services\Sensors\SensorsService;
 
 class LogsController extends Controller
@@ -18,9 +19,7 @@ class LogsController extends Controller
             ->setParam($param)
             ->getLogs($request->query());
 
-        return response()->json([
-            'data' => $logs
-        ]);
+        return new SensorsResource($logs);
     }
 
     public function deleteAll(string $param)
@@ -29,6 +28,6 @@ class LogsController extends Controller
             ->setParam($param)
             ->deleteLogs();
 
-        return response()->json([]);
+        return new SensorsResource();
     }
 }
