@@ -16,6 +16,8 @@ class SensorsService
     public function setParam(string $param)
     {
         $this->param = strtoupper($param);
+
+        return $this;
     }
 
     public function getParam()

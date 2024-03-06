@@ -14,8 +14,9 @@ class LogsController extends Controller
 
     public function index(string $param, Request $request)
     {
-        $this->service->setParam($param);
-        $logs = $this->service->getLogs($request->query());
+        $logs = $this->service
+            ->setParam($param)
+            ->getLogs($request->query());
 
         return response()->json([
             'data' => $logs
@@ -24,8 +25,9 @@ class LogsController extends Controller
 
     public function deleteAll(string $param)
     {
-        $this->service->setParam($param);
-        $this->service->deleteLogs();
+        $this->service
+            ->setParam($param)
+            ->deleteLogs();
 
         return response()->json([]);
     }

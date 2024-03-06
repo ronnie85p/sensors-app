@@ -14,8 +14,9 @@ class ConfigController extends Controller
 
     public function show(string $param)
     {
-        $this->service->setParam($param);
-        $config = $this->service->getConfig();
+        $config = $this->service
+            ->setParam($param)
+            ->getConfig();
 
         return response()->json([
             'data' => $config
@@ -26,8 +27,9 @@ class ConfigController extends Controller
     {
         $fields = $request->all();
 
-        $this->service->setParam($param);
-        $this->service->setConfig($fields);
+        $this->service
+            ->setParam($param)
+            ->setConfig($fields);
 
         return response()->json([
             'config' => $this->service->getConfig(),
