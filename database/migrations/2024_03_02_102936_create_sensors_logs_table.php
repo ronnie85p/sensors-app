@@ -17,6 +17,8 @@ return new class extends Migration
             $table->char('param');
             $table->string('value');
             $table->json("options")->nullable();
+
+            $table->index(['param', 'value', 'created_at']);
         });
     }
 

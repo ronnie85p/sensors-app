@@ -17,6 +17,8 @@ return new class extends Migration
             $table->char('param');
             $table->string("url");
             $table->tinyInteger("query_delay")->default(0);
+
+            $table->index(['param', 'created_at']);
         });
     }
 
